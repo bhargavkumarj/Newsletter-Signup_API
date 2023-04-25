@@ -10,7 +10,7 @@ const app=express();
 app.use(bodyParser.urlencoded({extended:true}));
 //To get all the static files like css file and images to be loaded here.
 
-app.use(express.static("/public"));
+app.use(express.static("public"));
 
 
 app.get("/",function(req,res){
@@ -63,10 +63,9 @@ app.post("/failure",function(req,res){
     res.redirect('/');
 })
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("Server is running on port 3000");
 });
-
 
 
 //API KEY:  7b81c1f8b601d5286d618a0e3d6db69e-us17
